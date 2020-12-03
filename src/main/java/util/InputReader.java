@@ -1,8 +1,9 @@
 package util;
 
-import lombok.extern.slf4j.Slf4j;
-
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ import java.util.List;
 
 public class InputReader<T> {
 
-    private Caster<T> caster;
+    private final Caster<T> caster;
 
     public InputReader(Caster<T> caster) {
         this.caster = caster;
@@ -32,14 +33,11 @@ public class InputReader<T> {
         List<T> result = new ArrayList<>();
         try (BufferedReader b = new BufferedReader(new FileReader(f))) {
 
-            String line = null;
+            String line;
             while((line = b.readLine()) != null) {
                 T cast = caster.cast(line);
                 result.add(cast);
             }
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }

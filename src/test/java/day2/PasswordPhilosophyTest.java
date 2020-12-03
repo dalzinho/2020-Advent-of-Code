@@ -14,6 +14,8 @@ import static org.junit.Assert.assertEquals;
 public class PasswordPhilosophyTest {
 
     private PasswordPhilosophy passwordPhilosophy;
+    private CharacterCountValidator characterCountValidator;
+    private BitwiseCharacterValidator bitwiseCharacterValidator;
 
     private String testInputOne;
     private String testInputTwo;
@@ -22,6 +24,8 @@ public class PasswordPhilosophyTest {
     @Before
     public void setup() {
         passwordPhilosophy = new PasswordPhilosophy();
+        characterCountValidator = new CharacterCountValidator();
+        bitwiseCharacterValidator = new BitwiseCharacterValidator();
 
         testInputOne = "1-3 a: abcde";
         testInputTwo = "1-3 b: cdefg";
@@ -30,26 +34,26 @@ public class PasswordPhilosophyTest {
 
     @Test
     public void testCaseOne() {
-        long actual = passwordPhilosophy.processRuleSetOne(Collections.singletonList(testInputOne));
+        long actual = passwordPhilosophy.countMatches(Collections.singletonList(testInputOne), characterCountValidator);
         assertEquals(1, actual);
     }
 
     @Test
     public void testCaseTwo() {
-        long actual = passwordPhilosophy.processRuleSetOne(Collections.singletonList(testInputTwo));
+        long actual = passwordPhilosophy.countMatches(Collections.singletonList(testInputTwo), characterCountValidator);
         assertEquals(0, actual);
     }
 
     @Test
     public void testCaseThree() {
-        long actual = passwordPhilosophy.processRuleSetOne(Collections.singletonList(testInputThree));
+        long actual = passwordPhilosophy.countMatches(Collections.singletonList(testInputThree), characterCountValidator);
         assertEquals(1, actual);
     }
 
     @Test
     public void testAllTestCases() {
         List<String> inputs = Arrays.asList(testInputOne, testInputTwo, testInputThree);
-        long actual = passwordPhilosophy.processRuleSetOne(inputs);
+        long actual = passwordPhilosophy.countMatches(inputs, characterCountValidator);
         assertEquals(2, actual);
     }
 
@@ -57,25 +61,25 @@ public class PasswordPhilosophyTest {
     public void testPartOneWithInputs() {
         InputReader<String> ir = new InputReader<>(new StringCaster());
         List<String> d2PasswordInputs = ir.readInputFile("d2_password_inputs");
-        long process = passwordPhilosophy.processRuleSetOne(d2PasswordInputs);
+        long process = passwordPhilosophy.countMatches(d2PasswordInputs, characterCountValidator);
         assertEquals(638, process);
     }
 
     @Test
     public void testDay2CaseOne() {
-        long actual = passwordPhilosophy.processRuleSetTwo(Collections.singletonList(testInputOne));
+        long actual = passwordPhilosophy.countMatches(Collections.singletonList(testInputOne), bitwiseCharacterValidator);
         assertEquals(1, actual);
     }
 
     @Test
     public void testDay2CaseTwo() {
-        long actual = passwordPhilosophy.processRuleSetTwo(Collections.singletonList(testInputTwo));
+        long actual = passwordPhilosophy.countMatches(Collections.singletonList(testInputTwo), bitwiseCharacterValidator);
         assertEquals(0, actual);
     }
 
     @Test
     public void testDay2CaseThree() {
-        long actual = passwordPhilosophy.processRuleSetTwo(Collections.singletonList(testInputThree));
+        long actual = passwordPhilosophy.countMatches(Collections.singletonList(testInputThree), bitwiseCharacterValidator);
         assertEquals(0, actual);
     }
 
@@ -83,7 +87,7 @@ public class PasswordPhilosophyTest {
     public void testPartTwoWithInputs() {
         InputReader<String> ir = new InputReader<>(new StringCaster());
         List<String> d2PasswordInputs = ir.readInputFile("d2_password_inputs");
-        long process = passwordPhilosophy.processRuleSetTwo(d2PasswordInputs);
+        long process = passwordPhilosophy.countMatches(d2PasswordInputs, bitwiseCharacterValidator);
         assertEquals(699, process);
     }
 

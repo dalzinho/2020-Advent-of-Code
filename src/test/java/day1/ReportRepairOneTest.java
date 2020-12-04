@@ -43,8 +43,6 @@ public class ReportRepairOneTest {
 
     @Test
     public void matchesEntriesSumming2020_threeCase() {
-        InputReader<Long> ir = new InputReader<>(new LongCaster());
-        List<Long> dlInputs = ir.readInputFile("d1_inputs");
         long productOfMatchesToDepth = reportRepairOne.findProductOfMatchesToDepth(2020L, Arrays.asList(2017L, 2L, 1L), 3);
         assertEquals(2017 * 2, productOfMatchesToDepth);
     }

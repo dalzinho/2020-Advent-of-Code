@@ -3,7 +3,7 @@ package day4;
 import org.junit.Before;
 import org.junit.Test;
 import util.InputReader;
-import util.StringCaster;
+import util.caster.StringCaster;
 
 import java.util.Arrays;
 import java.util.List;

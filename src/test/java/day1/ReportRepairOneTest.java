@@ -3,7 +3,7 @@ package day1;
 import org.junit.Before;
 import org.junit.Test;
 import util.InputReader;
-import util.LongCaster;
+import util.caster.LongCaster;
 
 import java.util.Arrays;
 import java.util.List;
@@ -46,7 +46,7 @@ public class ReportRepairOneTest {
         InputReader<Long> ir = new InputReader<>(new LongCaster());
         List<Long> dlInputs = ir.readInputFile("d1_inputs");
         long productOfMatchesToDepth = reportRepairOne.findProductOfMatchesToDepth(2020L, Arrays.asList(2017L, 2L, 1L), 3);
-        assertEquals(2017 * 2 * 1, productOfMatchesToDepth);
+        assertEquals(2017 * 2, productOfMatchesToDepth);
     }
 
     @Test
@@ -54,7 +54,6 @@ public class ReportRepairOneTest {
         InputReader<Long> ir = new InputReader<>(new LongCaster());
         List<Long> d1_inputs = ir.readInputFile("d1_inputs");
         long execute = reportRepairOne.findProductOfMatchesToDepth(2020L, d1_inputs, 3);
-        System.out.println(execute);
         assertEquals(259521570, execute);
     }
 }

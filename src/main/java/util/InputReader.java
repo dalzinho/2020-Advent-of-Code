@@ -1,5 +1,7 @@
 package util;
 
+import util.caster.Caster;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -18,21 +20,10 @@ public class InputReader<T> {
     }
 
     public List<T> readInputFile(String path) {
-        URL resource = getClass().getClassLoader().getResource(path);
-        if (resource == null) {
-            throw new IllegalArgumentException("file not found!");
-        }
+        File f = getFileFromPath(path);
 
-        File f = null;
-
-        try {
-            f = new File(resource.toURI());
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
         List<T> result = new ArrayList<>();
         try (BufferedReader b = new BufferedReader(new FileReader(f))) {
-
             String line;
             while((line = b.readLine()) != null) {
                 T cast = caster.cast(line);
@@ -44,4 +35,16 @@ public class InputReader<T> {
         return result;
     }
 
+    private File getFileFromPath(String path) {
+        URL resource = getClass().getClassLoader().getResource(path);
+        if (resource == null) {
+            throw new IllegalArgumentException("file not found!");
+        }
+
+        try {
+            return new File(resource.toURI());
+        } catch (URISyntaxException e) {
+            throw new IllegalArgumentException("unable to load " + path, e);
+        }
+    }
 }

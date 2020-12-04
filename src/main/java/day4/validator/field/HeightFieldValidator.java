@@ -1,5 +1,8 @@
 package day4.validator.field;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class HeightFieldValidator extends FieldValidator {
 
     public HeightFieldValidator(String key) {
@@ -8,24 +11,24 @@ public class HeightFieldValidator extends FieldValidator {
 
     @Override
     protected boolean validateValue(String value) {
-        String heightUnit = "";
-        if (value.endsWith("cm")) {
-            heightUnit = "cm";
-        } else if (value.endsWith("in")) {
-            heightUnit = "in";
-        } else {
+
+        final Pattern pattern = Pattern.compile("(\\d+) ?(cm|in)");
+        final Matcher matcher = pattern.matcher(value);
+
+        if (!matcher.matches()) {
             return false;
         }
 
-        final String heightNumber = value.replaceAll("[a-z]", "");
-        int height = Integer.parseInt(heightNumber);
+        int heightValue = Integer.parseInt(matcher.group(1));
+        String heightUnit = matcher.group(2);
 
-        boolean isValid = false;
-        if (heightUnit.equals("cm")) {
-            isValid = height >= 150 && height <= 193;
-        } else {
-            isValid = height >= 59 && height <= 76;
-        }
-        return isValid;
+        return heightUnit.equals("cm")
+                ? validateHeightByUnit(heightValue, 150, 193)
+                : validateHeightByUnit(heightValue, 59, 76);
     }
+
+    private boolean validateHeightByUnit(int height, int lowBound, int highBound) {
+        return height >= lowBound && height <= highBound;
+    }
+
 }

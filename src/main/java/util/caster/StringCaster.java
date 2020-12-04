@@ -1,4 +1,4 @@
-package util;
+package util.caster;
 
 public class StringCaster implements Caster<String> {
 

@@ -3,7 +3,7 @@ package day3;
 import org.junit.Before;
 import org.junit.Test;
 import util.InputReader;
-import util.StringCaster;
+import util.caster.StringCaster;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -106,7 +106,6 @@ public class TobogganTrajectoryTest {
         InputReader<String> ir = new InputReader<>(new StringCaster());
         final List<String> d3Inputs = ir.readInputFile("d3_inputs");
         final long treeCount = tobogganTrajectory.process(d3Inputs, slopes);
-        System.out.println(treeCount);
         assertEquals(5_522_401_584L, treeCount);
     }
 }

@@ -6,7 +6,7 @@ import day4.validator.PassportValidator;
 import org.junit.Before;
 import org.junit.Test;
 import util.InputReader;
-import util.StringCaster;
+import util.caster.StringCaster;
 
 import java.util.Arrays;
 import java.util.List;
@@ -80,7 +80,6 @@ public class PassportProcessingTest {
         InputReader<String> ir = new InputReader<>(new StringCaster());
         final List<String> d4_test_input = ir.readInputFile("d4_inputs");
         final long actual = passportProcessing.validate(d4_test_input, fieldsCheckedValidator);
-        System.out.println(actual);
         assertEquals(101, actual);
     }
 

@@ -19,7 +19,8 @@ public class BinarySearcher {
             }
         }
 
-        return steps.get(steps.size() - 1) ? nextMax : nextMin;
+        boolean lastStep = steps.get(steps.size() - 1);
+        return lastStep  ? nextMax : nextMin;
     }
 
 }

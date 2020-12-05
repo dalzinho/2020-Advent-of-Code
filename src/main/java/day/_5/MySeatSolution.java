@@ -1,12 +1,13 @@
-package day._5.solution;
+package day._5;
 
-import day._5.SeatCalculator;
+import day._5.util.SeatCalculator;
+import util.Solution;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class MySeatSolution implements Solution {
+public class MySeatSolution implements Solution<String, Integer> {
 
     private final SeatCalculator seatCalculator;
 
@@ -15,7 +16,7 @@ public class MySeatSolution implements Solution {
     }
 
     @Override
-    public int solve(List<String> input) {
+    public Integer solve(List<String> input) {
         final List<Integer> sortedList = input.stream()
                 .mapToInt(seatCalculator::getSeatFromDescription)
                 .sorted()

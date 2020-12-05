@@ -1,4 +1,4 @@
-package day_1;
+package day._1;
 
 import org.junit.Before;
 import org.junit.Test;

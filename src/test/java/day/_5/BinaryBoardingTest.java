@@ -1,12 +1,10 @@
 package day._5;
 
-import day._5.solution.MaxSeatSolution;
-import day._5.solution.MySeatSolution;
-import day._5.util.BinarySearcher;
-import day._5.util.SeatPatternDecoder;
+import day._5.util.BinarySeatCalculator;
 import org.junit.Before;
 import org.junit.Test;
 import util.InputReader;
+import util.SolutionRunner;
 import util.caster.StringCaster;
 
 import java.util.Arrays;
@@ -17,22 +15,21 @@ import static org.junit.Assert.assertEquals;
 public class BinaryBoardingTest {
 
     private InputReader<String> inputReader;
-    private BinaryBoarding binaryBoarding;
+    private SolutionRunner<String, Integer> solutionRunner;
     private MaxSeatSolution maxSeatSolution;
     private MySeatSolution mySeatSolution;
 
     @Before
     public void setUp() {
         inputReader = new InputReader<>(new StringCaster());
-        binaryBoarding = new BinaryBoarding();
-        final SeatCalculator seatCalculator = new SeatCalculator(new SeatPatternDecoder(), new BinarySearcher());
-        maxSeatSolution = new MaxSeatSolution(seatCalculator);
-        mySeatSolution = new MySeatSolution(seatCalculator);
+        solutionRunner = new SolutionRunner<>();
+        maxSeatSolution = new MaxSeatSolution(new BinarySeatCalculator());
+        mySeatSolution = new MySeatSolution(new BinarySeatCalculator());
     }
 
     @Test
     public void solution_1_providedTestCases() {
-        int maxSeatNumber = binaryBoarding.getSeatFromDescription(Arrays.asList("BFFFBBFRRR", "FFFBBBFRRR", "BBFFBBFRLL"), maxSeatSolution);
+        int maxSeatNumber = solutionRunner.solve(Arrays.asList("BFFFBBFRRR", "FFFBBBFRRR", "BBFFBBFRLL"), maxSeatSolution);
         assertEquals(820, maxSeatNumber);
     }
 
@@ -40,7 +37,7 @@ public class BinaryBoardingTest {
     public void solution1_inputs() {
         final List<String> d5Inputs = inputReader.readInputFile("d5_inputs");
 
-        final int maxSeatNumber = binaryBoarding.getSeatFromDescription(d5Inputs, maxSeatSolution);
+        final int maxSeatNumber = solutionRunner.solve(d5Inputs, maxSeatSolution);
         assertEquals(880, maxSeatNumber);
     }
 
@@ -48,7 +45,7 @@ public class BinaryBoardingTest {
     public void solution2_inputs() {
         final List<String> d5Inputs = inputReader.readInputFile("d5_inputs");
 
-        final int mySeat = binaryBoarding.getSeatFromDescription(d5Inputs, mySeatSolution);
+        final int mySeat = solutionRunner.solve(d5Inputs, mySeatSolution);
         assertEquals(731, mySeat);
     }
 

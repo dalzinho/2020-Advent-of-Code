@@ -3,6 +3,7 @@ package day._2;
 import org.junit.Before;
 import org.junit.Test;
 import util.InputReader;
+import util.SolutionRunner;
 import util.caster.StringCaster;
 
 import java.util.Arrays;
@@ -91,5 +92,17 @@ public class PasswordPhilosophyTest {
         assertEquals(699, process);
     }
 
+    @Test
+    public void testWithSolutionRunner() {
+        InputReader<String> ir = new InputReader<>(new StringCaster());
+        List<String> d2PasswordInputs = ir.readInputFile("d2_password_inputs");
+
+        SolutionRunner<String, Long> solutionRunner = new SolutionRunner<>();
+        final Long solution1 = solutionRunner.solve(d2PasswordInputs, new PasswordPhilosophy(characterCountValidator));
+        final Long solution2 = solutionRunner.solve(d2PasswordInputs, new PasswordPhilosophy(bitwiseCharacterValidator));
+
+        assertEquals(638, (long) solution1);
+        assertEquals(699, (long) solution2);
+    }
 
 }

@@ -1,7 +1,6 @@
 package day._5;
 
-import day._5.util.BinarySearcher;
-import day._5.util.SeatPatternDecoder;
+import day._5.util.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -13,7 +12,8 @@ public class SeatCalculatorTest {
 
     @Before
     public void setUp() throws Exception {
-        seatCalculator = new SeatCalculator(new SeatPatternDecoder(), new BinarySearcher());
+//        seatCalculator = new ListPartitionSeatCalculator(new SeatPatternDecoder(), new BinarySearcher());
+        seatCalculator = new BinarySeatCalculator();
     }
 
     @Test

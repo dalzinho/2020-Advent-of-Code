@@ -2,10 +2,10 @@ package day._4;
 
 import day._4.validator.FieldPresentPassportValidator;
 import day._4.validator.FieldsCheckedPassportValidator;
-import day._4.validator.PassportValidator;
 import org.junit.Before;
 import org.junit.Test;
 import util.InputReader;
+import util.SolutionRunner;
 import util.caster.StringCaster;
 
 import java.util.Arrays;
@@ -15,22 +15,22 @@ import static org.junit.Assert.assertEquals;
 
 public class PassportProcessingTest {
 
-    private PassportProcessing passportProcessing;
-    private PassportValidator fieldPresentValidator;
-    private PassportValidator fieldsCheckedValidator;
+    private PassportProcessingSolution solution1;
+    private PassportProcessingSolution solution2;
+    private SolutionRunner<String, Long> solutionRunner;
 
     @Before
     public void setup() {
-        passportProcessing = new PassportProcessing(new PassportInputFlattener(), new PassportInputMapper());
-        fieldPresentValidator = new FieldPresentPassportValidator();
-        fieldsCheckedValidator = new FieldsCheckedPassportValidator();
+        solution1 = new PassportProcessingSolution(new PassportInputFlattener(), new PassportInputMapper(), new FieldPresentPassportValidator());
+        solution2 = new PassportProcessingSolution(new PassportInputFlattener(), new PassportInputMapper(), new FieldsCheckedPassportValidator());
+        solutionRunner = new SolutionRunner<>();
     }
 
     @Test
     public void testInputOne() {
         final List<String> input = Arrays.asList("ecl:gry pid:860033327 eyr:2020 hcl:#fffffd", "byr:1937 iyr:2017 cid:147 hgt:183cm");
 
-        final long actual = passportProcessing.validate(input, fieldPresentValidator);
+        final long actual = solutionRunner.solve(input, solution1);
         assertEquals(1, actual);
     }
 
@@ -44,7 +44,7 @@ public class PassportProcessingTest {
                 "hcl:#cfa07d byr:1929"
         );
 
-        final long actual = passportProcessing.validate(inputs, fieldPresentValidator);
+        final long actual = solutionRunner.solve(inputs, solution1);
         assertEquals(1, actual);
     }
 
@@ -52,7 +52,7 @@ public class PassportProcessingTest {
     public void testWithTestInputs() {
         InputReader<String> ir = new InputReader<>(new StringCaster());
         final List<String> d4_test_input = ir.readInputFile("d4_test_inputs");
-        final long actual = passportProcessing.validate(d4_test_input, fieldPresentValidator);
+        final long actual = solutionRunner.solve(d4_test_input, solution1);
         assertEquals(2, actual);
     }
 
@@ -60,7 +60,8 @@ public class PassportProcessingTest {
     public void testWithActualInputs() {
         InputReader<String> ir = new InputReader<>(new StringCaster());
         final List<String> d4_test_input = ir.readInputFile("d4_inputs");
-        final long actual = passportProcessing.validate(d4_test_input, fieldPresentValidator);
+        final long actual = solutionRunner.solve(d4_test_input, solution1);
+
         assertEquals(192, actual);
     }
 
@@ -71,15 +72,15 @@ public class PassportProcessingTest {
                 "hcl:#623a2f"
         );
 
-        final long actual = passportProcessing.validate(inputs, fieldsCheckedValidator);
+        final long actual = solutionRunner.solve(inputs, solution2);
         assertEquals(1, actual);
     }
 
     @Test
     public void testWithActualInputsPuzzleTwo() {
         InputReader<String> ir = new InputReader<>(new StringCaster());
-        final List<String> d4_test_input = ir.readInputFile("d4_inputs");
-        final long actual = passportProcessing.validate(d4_test_input, fieldsCheckedValidator);
+        final List<String> d4Inputs = ir.readInputFile("d4_inputs");
+        final long actual = solutionRunner.solve(d4Inputs, solution2);
         assertEquals(101, actual);
     }
 

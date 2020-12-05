@@ -1,10 +1,11 @@
-package day._5.solution;
+package day._5;
 
-import day._5.SeatCalculator;
+import day._5.util.SeatCalculator;
+import util.Solution;
 
 import java.util.List;
 
-public class MaxSeatSolution implements Solution {
+public class MaxSeatSolution implements Solution<String, Integer> {
 
     private final SeatCalculator seatCalculator;
 
@@ -13,7 +14,7 @@ public class MaxSeatSolution implements Solution {
     }
 
     @Override
-    public int solve(List<String> input) {
+    public Integer solve(List<String> input) {
         return input.stream()
                 .map(seatCalculator::getSeatFromDescription)
                 .mapToInt(Integer::intValue)

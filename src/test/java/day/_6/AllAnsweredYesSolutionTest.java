@@ -23,8 +23,7 @@ public class AllAnsweredYesSolutionTest {
     public void test() {
         InputReader<String> ir = new InputReader<>(new StringCaster());
         final List<String> d6Inputs = ir.readInputFile("d6_inputs");
-        final Long solve = allAnsweredYesSolution.solve(d6Inputs);
-        System.out.println(solve);
-        assertTrue(solve > 479);
+        final long solution = allAnsweredYesSolution.solve(d6Inputs);
+        assertEquals(3323L, solution);
     }
 }

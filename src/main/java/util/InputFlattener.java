@@ -1,12 +1,12 @@
-package day._4;
+package util;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class PassportInputFlattener {
+public class InputFlattener {
 
-    public List<List<String>> flatten(List<String> inputs) {
+    public List<List<String>> flatten(List<String> inputs, String splitLineOn) {
         List<List<String>> output = new ArrayList<>();
 
         List<String> list = new ArrayList<>();
@@ -18,7 +18,7 @@ public class PassportInputFlattener {
                 continue;
             }
 
-            final String[] splitLine = input.split(" ");
+            final String[] splitLine = input.split(splitLineOn);
             list.addAll(Arrays.asList(splitLine));
         }
 

@@ -5,6 +5,7 @@ import day._4.validator.FieldsCheckedPassportValidator;
 import org.junit.Before;
 import org.junit.Test;
 import util.InputReader;
+import util.InputFlattener;
 import util.SolutionRunner;
 import util.caster.StringCaster;
 
@@ -21,8 +22,8 @@ public class PassportProcessingTest {
 
     @Before
     public void setup() {
-        solution1 = new PassportProcessingSolution(new PassportInputFlattener(), new PassportInputMapper(), new FieldPresentPassportValidator());
-        solution2 = new PassportProcessingSolution(new PassportInputFlattener(), new PassportInputMapper(), new FieldsCheckedPassportValidator());
+        solution1 = new PassportProcessingSolution(new InputFlattener(), new PassportInputMapper(), new FieldPresentPassportValidator());
+        solution2 = new PassportProcessingSolution(new InputFlattener(), new PassportInputMapper(), new FieldsCheckedPassportValidator());
         solutionRunner = new SolutionRunner<>();
     }
 

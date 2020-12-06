@@ -1,24 +1,25 @@
 package day._4;
 
 import day._4.validator.PassportValidator;
+import util.InputFlattener;
 import util.Solution;
 
 import java.util.List;
 
 public class PassportProcessingSolution implements Solution<String, Long> {
 
-    private final PassportInputFlattener passportInputFlattener;
+    private final InputFlattener inputFlattener;
     private final PassportInputMapper passportInputMapper;
     private final PassportValidator passportValidator;
 
-    public PassportProcessingSolution(PassportInputFlattener passportInputFlattener, PassportInputMapper passportInputMapper, PassportValidator passportValidator) {
-        this.passportInputFlattener = passportInputFlattener;
+    public PassportProcessingSolution(InputFlattener inputFlattener, PassportInputMapper passportInputMapper, PassportValidator passportValidator) {
+        this.inputFlattener = inputFlattener;
         this.passportInputMapper = passportInputMapper;
         this.passportValidator = passportValidator;
     }
 
     public Long solve(List<String> inputs) {
-        return passportInputFlattener.flatten(inputs)
+        return inputFlattener.flatten(inputs, " ")
                 .stream()
                 .map(passportInputMapper::mapInputToPassport)
                 .filter(passportValidator::validate)

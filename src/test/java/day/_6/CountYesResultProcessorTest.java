@@ -10,7 +10,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-public class CountYesGroupProcessorTest {
+public class CountYesResultProcessorTest {
 
     private CustomCustomsSolution customCustomsSolution;
 

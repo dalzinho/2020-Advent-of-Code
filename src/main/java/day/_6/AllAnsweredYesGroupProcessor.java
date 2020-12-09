@@ -1,13 +1,13 @@
 package day._6;
 
+import util.ResultProcessor;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static java.util.function.Function.identity;
+public class AllAnsweredYesGroupProcessor implements ResultProcessor<String, Long> {
 
-public class AllAnsweredYesGroupProcessor implements GroupProcessor {
-
-    public long process(List<String> answers) {
+    public Long process(List<String> answers) {
         return answers.stream()
                 .map(answer -> answer.split(""))
                 .map(Arrays::asList)

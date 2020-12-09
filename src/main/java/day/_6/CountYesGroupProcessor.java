@@ -1,12 +1,14 @@
 package day._6;
 
+import util.ResultProcessor;
+
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-public class CountYesGroupProcessor implements GroupProcessor {
+public class CountYesGroupProcessor implements ResultProcessor<String, Long> {
 
-    public long process(List<String> answers) {
+    public Long process(List<String> answers) {
         return answers.stream()
                 .map(answer -> Arrays.asList(answer.split("")))
                 .flatMap(Collection::stream)

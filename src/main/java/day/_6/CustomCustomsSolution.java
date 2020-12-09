@@ -1,5 +1,6 @@
 package day._6;
 
+import util.ResultProcessor;
 import util.InputFlattener;
 import util.Solution;
 
@@ -8,18 +9,18 @@ import java.util.List;
 public class CustomCustomsSolution implements Solution<String, Long> {
 
     private final InputFlattener inputFlattener;
-    private final GroupProcessor groupProcessor;
+    private final ResultProcessor<String, Long> resultProcessor;
 
-    public CustomCustomsSolution(InputFlattener inputFlattener, GroupProcessor groupProcessor) {
+    public CustomCustomsSolution(InputFlattener inputFlattener, ResultProcessor<String, Long> resultProcessor) {
         this.inputFlattener = inputFlattener;
-        this.groupProcessor = groupProcessor;
+        this.resultProcessor = resultProcessor;
     }
 
     @Override
     public Long solve(List<String> input) {
         return inputFlattener.flatten(input, "\n")
                 .stream()
-                .map(groupProcessor::process)
+                .map(resultProcessor::process)
                 .mapToLong(Long::longValue)
                 .sum();
     }

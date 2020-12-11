@@ -1,6 +1,6 @@
 package day._11;
 
-import day._11.generator.CountOccupiedOnlyAdjacentSeatGenerator;
+import day._11.generator.AdjacentSeatGenerator;
 import day._11.generator.LineOfSightGenerator;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,7 +20,7 @@ public class SeatingSystemTest {
 
     @Before
     public void setUp() {
-        adjacentSeatSolution = new SeatingSystem(new CountOccupiedOnlyAdjacentSeatGenerator());
+        adjacentSeatSolution = new SeatingSystem(new AdjacentSeatGenerator());
         lineOfSightSeatSolution = new SeatingSystem(new LineOfSightGenerator());
     }
 

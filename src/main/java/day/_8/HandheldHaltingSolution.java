@@ -1,7 +1,5 @@
 package day._8;
 
-import org.apache.commons.lang3.SerializationUtils;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -11,11 +9,11 @@ public class HandheldHaltingSolution {
 
     public long solve(List<String> inputs) {
         final List<Command> commands = parseInputs(inputs);
-        return execute(commands);
+        return execute(commands, true);
 
     }
 
-    private long execute(List<Command> commands) {
+    private long execute(List<Command> commands, boolean returnAccumulatorOnException) {
         List<Integer> executedLines = new ArrayList<>();
 
         int executionLine = 0;
@@ -23,6 +21,9 @@ public class HandheldHaltingSolution {
 
         while (executionLine < commands.size()) {
             if (executedLines.contains(executionLine)) {
+                if (returnAccumulatorOnException) {
+                    return accumulator;
+                }
                 throw new IllegalArgumentException("tried to repeat line: " + executionLine + " | accumulator : " + accumulator);
             }
 
@@ -85,7 +86,7 @@ public class HandheldHaltingSolution {
 
             if (changed) {
                 try {
-                    return execute(commands);
+                    return execute(commands, false);
                 } catch (IllegalArgumentException e) {
                     System.err.println(e);
                 }

@@ -21,42 +21,42 @@ public class AdapterArrayTest {
 
     @Test
     public void puzzle1_withTestInputs1() {
-        final List<Long> longs = inputReader.readInputFile("d10/d10_p1_test_inputs_1");
+        final List<Long> longs = inputReader.readInputFile("_10/d10_p1_test_inputs_1");
         long solution = adapterArray.solve(longs);
         assertEquals(7 * 5, solution);
     }
 
     @Test
     public void puzzle1_withTestInputs2() {
-        final List<Long> longs = inputReader.readInputFile("d10/d10_p1_test_inputs_2");
+        final List<Long> longs = inputReader.readInputFile("_10/d10_p1_test_inputs_2");
         long solution = adapterArray.solve(longs);
         assertEquals(22 * 10, solution);
     }
 
     @Test
     public void puzzle1_withInputs() {
-        final List<Long> longs = inputReader.readInputFile("d10/d10_inputs");
+        final List<Long> longs = inputReader.readInputFile("_10/d10_inputs");
         long solution = adapterArray.solve(longs);
         assertEquals(1998, solution);
     }
 
     @Test
     public void puzzle2_withTestInputs1() {
-        final List<Long> longs = inputReader.readInputFile("d10/d10_p1_test_inputs_1");
+        final List<Long> longs = inputReader.readInputFile("_10/d10_p1_test_inputs_1");
         long solution = adapterArray.solve2(longs);
         assertEquals(8, solution);
     }
 
     @Test
     public void puzzle2_withTestInputs2() {
-        final List<Long> longs = inputReader.readInputFile("d10/d10_p1_test_inputs_2");
+        final List<Long> longs = inputReader.readInputFile("_10/d10_p1_test_inputs_2");
         long solution = adapterArray.solve2(longs);
         assertEquals(19208, solution);
     }
 
     @Test
     public void puzzle2_withInputs() {
-        final List<Long> longs = inputReader.readInputFile("d10/d10_inputs");
+        final List<Long> longs = inputReader.readInputFile("_10/d10_inputs");
         long solution = adapterArray.solve2(longs);
         assertEquals(347250213298688L, solution);
     }

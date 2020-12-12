@@ -21,28 +21,28 @@ public class HandheldHaltingSolutionTest {
 
     @Test
     public void solution1_withTestInputs() {
-        final List<String> d8_p1_test_inputs = inputReader.readInputFile("d8/d8_p1_test_inputs");
+        final List<String> d8_p1_test_inputs = inputReader.readInputFile("_08/d8_p1_test_inputs");
         final long solution = handheldHaltingSolution.solve(d8_p1_test_inputs);
         assertEquals(5, solution);
     }
 
     @Test
     public void solution1_withInputs() {
-        final List<String> d8Inputs = inputReader.readInputFile("d8/d8_inputs");
+        final List<String> d8Inputs = inputReader.readInputFile("_08/d8_inputs");
         final long solution = handheldHaltingSolution.solve(d8Inputs);
         assertEquals(1446, solution);
     }
 
     @Test
     public void solution2_withTestInputs() {
-        final List<String> d8_p1_test_inputs = inputReader.readInputFile("d8/d8_p1_test_inputs");
+        final List<String> d8_p1_test_inputs = inputReader.readInputFile("_08/d8_p1_test_inputs");
         final long solution = handheldHaltingSolution.solve2(d8_p1_test_inputs);
         assertEquals(8, solution);
     }
 
     @Test
     public void solution2_withInputs() {
-        final List<String> d8Inputs = inputReader.readInputFile("d8/d8_inputs");
+        final List<String> d8Inputs = inputReader.readInputFile("_08/d8_inputs");
         final long solution = handheldHaltingSolution.solve2(d8Inputs);
         assertEquals(1403, solution);
     }

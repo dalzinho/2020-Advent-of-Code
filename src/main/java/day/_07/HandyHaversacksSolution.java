@@ -17,7 +17,7 @@ public abstract class HandyHaversacksSolution implements Solution<String, Long> 
     protected final BagBuilder bagBuilder;
     protected final String targetColour;
 
-    public HandyHaversacksSolution(BagBuilder bagBuilder, String targetColour) {
+    protected HandyHaversacksSolution(BagBuilder bagBuilder, String targetColour) {
         this.bagBuilder = bagBuilder;
         this.targetColour = targetColour;
     }

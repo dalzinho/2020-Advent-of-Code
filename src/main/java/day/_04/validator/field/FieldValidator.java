@@ -6,7 +6,7 @@ public abstract class FieldValidator {
 
     private String key;
 
-    public FieldValidator(String key) {
+    protected FieldValidator(String key) {
         this.key = key;
     }
 

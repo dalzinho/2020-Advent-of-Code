@@ -47,9 +47,9 @@ public class ShuttleSearch {
         List<Long> frequencies = timeTableInput.getBusFrequencies();
 
         long earliest = frequencies.get(0);
-        long increment = 7L;
+        long increment = frequencies.get(0);
 
-        for (int i = 1; i < frequencies.size(); i++) {
+        for (int i = 0; i < frequencies.size(); i++) {
             List<Long> subList = frequencies.subList(0, i + 1);
             boolean nextFactorFound = false;
 

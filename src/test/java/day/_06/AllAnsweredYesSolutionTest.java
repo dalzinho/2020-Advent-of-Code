@@ -22,7 +22,7 @@ public class AllAnsweredYesSolutionTest {
     @Test
     public void test() {
         InputReader<String> ir = new InputReader<>(new StringCaster());
-        final List<String> d6Inputs = ir.readInputFile("d6_inputs");
+        final List<String> d6Inputs = ir.readInputFile("_06/d6_inputs");
         final long solution = allAnsweredYesSolution.solve(d6Inputs);
         assertEquals(3323L, solution);
     }

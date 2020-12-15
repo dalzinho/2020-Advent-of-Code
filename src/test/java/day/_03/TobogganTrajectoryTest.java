@@ -33,7 +33,7 @@ public class TobogganTrajectoryTest {
     public void testWithInputs() {
         List<List<Integer>> slopes = Collections.singletonList(Arrays.asList(3, 1));
 
-        final List<String> d3Inputs = inputReader.readInputFile("d3_inputs");
+        final List<String> d3Inputs = inputReader.readInputFile("_03/d3_inputs");
         final long treeCount = tobogganTrajectory.process(d3Inputs, slopes);
         assertEquals(289, treeCount);
     }
@@ -64,7 +64,7 @@ public class TobogganTrajectoryTest {
     }
 
     private void puzzleTwoTestCase(List<Integer> slope, long expected) {
-        final List<String> d3TestInputs = inputReader.readInputFile("d3_test_inputs");
+        final List<String> d3TestInputs = inputReader.readInputFile("_03/d3_test_inputs");
         List<List<Integer>> slopes = Collections.singletonList(slope);
         final long actual = tobogganTrajectory.process(d3TestInputs, slopes);
         assertEquals(expected, actual);
@@ -80,7 +80,7 @@ public class TobogganTrajectoryTest {
                 Arrays.asList(1, 2)
         );
 
-        final List<String> d3TestInputs = inputReader.readInputFile("d3_test_inputs");
+        final List<String> d3TestInputs = inputReader.readInputFile("_03/d3_test_inputs");
         final long actual = tobogganTrajectory.process(d3TestInputs, slopes);
         assertEquals(336, actual);
     }
@@ -96,7 +96,7 @@ public class TobogganTrajectoryTest {
         );
 
         InputReader<String> ir = new InputReader<>(new StringCaster());
-        final List<String> d3Inputs = ir.readInputFile("d3_inputs");
+        final List<String> d3Inputs = ir.readInputFile("_03/d3_inputs");
         final long treeCount = tobogganTrajectory.process(d3Inputs, slopes);
         assertEquals(5_522_401_584L, treeCount);
     }

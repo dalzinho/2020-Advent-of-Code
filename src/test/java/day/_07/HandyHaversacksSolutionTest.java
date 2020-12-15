@@ -29,28 +29,28 @@ public class HandyHaversacksSolutionTest {
 
     @Test
     public void test_WithTestInputs() {
-        final List<String> d7TestInputs = ir.readInputFile("d7_p1_test_inputs");
+        final List<String> d7TestInputs = ir.readInputFile("_07/d7_p1_test_inputs");
         final long solve = countOptionsSolution.solve(d7TestInputs);
         assertEquals(4L, solve);
     }
 
     @Test
     public void name() {
-        final List<String> d7Inputs = ir.readInputFile("d7_inputs");
+        final List<String> d7Inputs = ir.readInputFile("_07/d7_inputs");
         final long solve = countOptionsSolution.solve(d7Inputs);
         assertEquals(289, solve);
     }
 
     @Test
     public void test_solution2_testInputs() {
-        final List<String> p2TestInputs = ir.readInputFile("d7_p2_test_inputs");
+        final List<String> p2TestInputs = ir.readInputFile("_07/d7_p2_test_inputs");
         final long shiny_gold = totalBagCountSolution.solve(p2TestInputs);
         assertEquals(126, shiny_gold);
     }
 
     @Test
     public void anothername() {
-        final List<String> d7Inputs = ir.readInputFile("d7_inputs");
+        final List<String> d7Inputs = ir.readInputFile("_07/d7_inputs");
         final long sol = totalBagCountSolution.solve(d7Inputs);
         assertEquals(30055, sol);
     }

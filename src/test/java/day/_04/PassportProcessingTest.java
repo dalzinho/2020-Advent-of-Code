@@ -52,7 +52,7 @@ public class PassportProcessingTest {
     @Test
     public void testWithTestInputs() {
         InputReader<String> ir = new InputReader<>(new StringCaster());
-        final List<String> d4_test_input = ir.readInputFile("d4_test_inputs");
+        final List<String> d4_test_input = ir.readInputFile("_04/d4_test_inputs");
         final long actual = solutionRunner.solve(d4_test_input, solution1);
         assertEquals(2, actual);
     }
@@ -60,7 +60,7 @@ public class PassportProcessingTest {
     @Test
     public void testWithActualInputs() {
         InputReader<String> ir = new InputReader<>(new StringCaster());
-        final List<String> d4_test_input = ir.readInputFile("d4_inputs");
+        final List<String> d4_test_input = ir.readInputFile("_04/d4_inputs");
         final long actual = solutionRunner.solve(d4_test_input, solution1);
 
         assertEquals(192, actual);
@@ -80,7 +80,7 @@ public class PassportProcessingTest {
     @Test
     public void testWithActualInputsPuzzleTwo() {
         InputReader<String> ir = new InputReader<>(new StringCaster());
-        final List<String> d4Inputs = ir.readInputFile("d4_inputs");
+        final List<String> d4Inputs = ir.readInputFile("_04/d4_inputs");
         final long actual = solutionRunner.solve(d4Inputs, solution2);
         assertEquals(101, actual);
     }

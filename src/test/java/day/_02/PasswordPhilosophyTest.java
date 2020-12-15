@@ -61,7 +61,7 @@ public class PasswordPhilosophyTest {
     @Test
     public void testPartOneWithInputs() {
         InputReader<String> ir = new InputReader<>(new StringCaster());
-        List<String> d2PasswordInputs = ir.readInputFile("d2_password_inputs");
+        List<String> d2PasswordInputs = ir.readInputFile("_02/d2_password_inputs");
         long process = passwordPhilosophy.countMatches(d2PasswordInputs, characterCountValidator);
         assertEquals(638, process);
     }
@@ -87,7 +87,7 @@ public class PasswordPhilosophyTest {
     @Test
     public void testPartTwoWithInputs() {
         InputReader<String> ir = new InputReader<>(new StringCaster());
-        List<String> d2PasswordInputs = ir.readInputFile("d2_password_inputs");
+        List<String> d2PasswordInputs = ir.readInputFile("_02/d2_password_inputs");
         long process = passwordPhilosophy.countMatches(d2PasswordInputs, bitwiseCharacterValidator);
         assertEquals(699, process);
     }
@@ -95,7 +95,7 @@ public class PasswordPhilosophyTest {
     @Test
     public void testWithSolutionRunner() {
         InputReader<String> ir = new InputReader<>(new StringCaster());
-        List<String> d2PasswordInputs = ir.readInputFile("d2_password_inputs");
+        List<String> d2PasswordInputs = ir.readInputFile("_02/d2_password_inputs");
 
         SolutionRunner<String, Long> solutionRunner = new SolutionRunner<>();
         final Long solution1 = solutionRunner.solve(d2PasswordInputs, new PasswordPhilosophy(characterCountValidator));

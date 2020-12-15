@@ -35,7 +35,7 @@ public class BinaryBoardingTest {
 
     @Test
     public void solution1_inputs() {
-        final List<String> d5Inputs = inputReader.readInputFile("d5_inputs");
+        final List<String> d5Inputs = inputReader.readInputFile("_05/d5_inputs");
 
         final int maxSeatNumber = solutionRunner.solve(d5Inputs, maxSeatSolution);
         assertEquals(880, maxSeatNumber);
@@ -43,7 +43,7 @@ public class BinaryBoardingTest {
 
     @Test
     public void solution2_inputs() {
-        final List<String> d5Inputs = inputReader.readInputFile("d5_inputs");
+        final List<String> d5Inputs = inputReader.readInputFile("_05/d5_inputs");
 
         final int mySeat = solutionRunner.solve(d5Inputs, mySeatSolution);
         assertEquals(731, mySeat);

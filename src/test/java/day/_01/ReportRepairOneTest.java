@@ -36,7 +36,7 @@ public class ReportRepairOneTest {
     @Test
     public void runWithInputs_2case() {
         InputReader<Long> ir = new InputReader<>(new LongCaster());
-        List<Long> d1_inputs = ir.readInputFile("d1_inputs");
+        List<Long> d1_inputs = ir.readInputFile("_01/d1_inputs");
         long execute = reportRepairOne.findProductOfMatchesToDepth(2020L, d1_inputs, 2);
         assertEquals(987339, execute);
     }
@@ -50,7 +50,7 @@ public class ReportRepairOneTest {
     @Test
     public void runWithInputs_3case() {
         InputReader<Long> ir = new InputReader<>(new LongCaster());
-        List<Long> d1_inputs = ir.readInputFile("d1_inputs");
+        List<Long> d1_inputs = ir.readInputFile("_01/d1_inputs");
         long execute = reportRepairOne.findProductOfMatchesToDepth(2020L, d1_inputs, 3);
         assertEquals(259521570, execute);
     }

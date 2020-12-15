@@ -53,7 +53,7 @@ public class InputFlattenerTest {
     @Test
     public void testWithTestInputs() {
         InputReader<String> ir =  new InputReader<>(new StringCaster());
-        final List<String> d4_test_input = ir.readInputFile("d4_test_inputs");
+        final List<String> d4_test_input = ir.readInputFile("_04/d4_test_inputs");
         final List<List<String>> flatten = inputFlattener.flatten(d4_test_input, " ");
         assertEquals(4, flatten.size());
     }

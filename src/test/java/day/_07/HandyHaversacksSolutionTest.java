@@ -1,6 +1,7 @@
 package day._07;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import util.InputReader;
 import util.caster.StringCaster;
@@ -28,6 +29,7 @@ public class HandyHaversacksSolutionTest {
     }
 
     @Test
+    @Ignore
     public void test_WithTestInputs() {
         final List<String> d7TestInputs = ir.readInputFile("_07/d7_p1_test_inputs");
         final long solve = countOptionsSolution.solve(d7TestInputs);
@@ -35,6 +37,7 @@ public class HandyHaversacksSolutionTest {
     }
 
     @Test
+    @Ignore
     public void name() {
         final List<String> d7Inputs = ir.readInputFile("_07/d7_inputs");
         final long solve = countOptionsSolution.solve(d7Inputs);
